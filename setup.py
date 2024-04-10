@@ -17,7 +17,7 @@ import setuptools
 
 # for simplicity we actually store the version in the __version__ attribute in the source
 here = os.path.realpath(os.path.dirname(__file__))
-with open(os.path.join(here, 'torchsde', '__init__.py')) as f:
+with open(os.path.join(here, 'torchsdeCustom', '__init__.py')) as f:
     meta_match = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]", f.read(), re.M)
     if meta_match:
         version = meta_match.group(1)
@@ -28,7 +28,7 @@ with open(os.path.join(here, 'README.md')) as f:
     readme = f.read()
 
 setuptools.setup(
-    name="torchsde",
+    name="torchsdeCustom",
     version=version,
     author="Kalle Raikisto",
     author_email="kalle.raikisto@gmail.com",
