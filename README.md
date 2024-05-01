@@ -1,4 +1,4 @@
-# torchsde_customized
+# torchsdeCustom
 
 Customised version of torchsde library that allows for more diffusion terms
 
