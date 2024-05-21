@@ -241,12 +241,12 @@ class ForwardSDE(BaseSDE):
 
 class RenameMethodsSDE(BaseSDE):
 
-    def __init__(self, sde, drift='f', diffusion='g', prior_drift='h', diffusion_prod='g_prod',
+    def __init__(self, sde, drift='f', cavity_diffusion='g', atom_diffusion='h', dephasing='p', diffusion_prod='g_prod',
                  drift_and_diffusion='f_and_g', drift_and_diffusion_prod='f_and_g_prod'):
         super(RenameMethodsSDE, self).__init__(noise_type=sde.noise_type, sde_type=sde.sde_type)
         self._base_sde = sde
-        for name, value in zip(('f', 'g', 'h', 'g_prod', 'f_and_g', 'f_and_g_prod'),
-                               (drift, diffusion, prior_drift, diffusion_prod, drift_and_diffusion,
+        for name, value in zip(('f', 'g', 'h', 'p', 'g_prod', 'f_and_g', 'f_and_g_prod'),
+                               (drift, cavity_diffusion, atom_diffusion, dephasing, diffusion_prod, drift_and_diffusion,
                                 drift_and_diffusion_prod)):
             try:
                 setattr(self, name, getattr(sde, value))
