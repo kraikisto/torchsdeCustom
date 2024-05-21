@@ -58,7 +58,7 @@ class ForwardSDE(BaseSDE):
         self.f = getattr(sde, 'f', self.f_default)
         self.g = getattr(sde, 'g', self.g_default)
         self.h = getattr(sde, 'h', self.h_default)
-        self.p = getattr(sde, 'p', self.h_default)
+        self.p = getattr(sde, 'p', self.p_default)
         self.f_and_g = getattr(sde, 'f_and_g', self.f_and_g_default)
         self.g_prod = getattr(sde, 'g_prod', self.g_prod_default)
         self.h_prod = getattr(sde, 'h_prod', self.h_prod_default)
@@ -93,6 +93,12 @@ class ForwardSDE(BaseSDE):
     ########################################
     def h_default(self, t, y):
         raise RuntimeError("Method `h` has not been provided, but is required for this method.")
+
+    ########################################
+    #                  p                   #
+    ########################################
+    def p_default(self, t, y):
+        raise RuntimeError("Method `p` has not been provided, but is required for this method.")
         
     ########################################
     #               f_and_g                #
