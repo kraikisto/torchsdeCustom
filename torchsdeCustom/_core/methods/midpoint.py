@@ -17,7 +17,7 @@ from .. import base_solver
 from ...settings import SDE_TYPES, NOISE_TYPES, LEVY_AREA_APPROXIMATIONS
 
 
-class Midpoint_plus(base_solver.BaseSDESolver):
+class Midpoint(base_solver.BaseSDESolver):
     weak_order = 1.0
     sde_type = SDE_TYPES.stratonovich
     noise_types = NOISE_TYPES.all()
@@ -25,7 +25,7 @@ class Midpoint_plus(base_solver.BaseSDESolver):
 
     def __init__(self, sde, **kwargs):
         self.strong_order = 0.5 if sde.noise_type == NOISE_TYPES.general else 1.0
-        super(Midpoint_plus, self).__init__(sde=sde, **kwargs)
+        super(Midpoint, self).__init__(sde=sde, **kwargs)
         
 
     
